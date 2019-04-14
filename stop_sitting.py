@@ -11,9 +11,9 @@ counter = 0
 
 def message_box():
     random_number = random.random()  # set a random number between 0 and 1
-    
+   
     random_reps = random.choice(rep_counts) # choose a random number from rep counts
-    
+   
     # SET PERCENT CHANCE FOR EACH ACTIVITY
     if random_number <= 0.33:                           #set % chance of first message
         final_activity = activities[0]
@@ -21,18 +21,18 @@ def message_box():
         final_activity = activities[1]
     elif random_number > 0.66:                          #set % chance of third message
         final_activity = activities[2]
-   
-    # CREATE THE MESSAGE BOX POPUP 
+  
+    # PLAY THE ALERT SOUND 
+    playsound.playsound('alert.mp3')
+    
+    # CREATE THE MESSAGE BOX POPUP
     MessageBox = ctypes.windll.user32.MessageBoxW
     MessageBox(None, str(random_reps) + " " + final_activity, 'STOP SITTING AND DO SOMETHING', 0)
-
-    # PLAY THE ALERT SOUND (NOT WORKING CURRENTLY)
-    # playsound('alert.mp3')
-    
+   
     # COUNT TIMES SCRIPT HAS RUN
     global counter
     counter += 1
-    time.sleep(2700) # interval in seconds between box pop-ups
-    
+    time.sleep(5) # interval in seconds between box pop-ups
+   
 while counter < 5:
     message_box()
