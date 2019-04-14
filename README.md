@@ -11,8 +11,9 @@ It should be fairly easy to customize with basic Python skills.
 
 `rep counts` is another list, for the list of rep count options you want `stop_sitting.py` to choose from.
 
-`message_box()` is the function that selects a rep count at random, selects an activity based on a random number and probability settings (currently set to 33% for each), creates the pop-up message, and then sleeps the script for a set period of time in seconds.
+`message_box()` is the function that selects a rep count at random, selects an activity based on a random number and probability settings (currently set to 33% for each), creates the pop-up message, and then sleeps the script for a set period of time in seconds. 
 
-`counter` is what I'm using to limit the number of times the script runs before finishing. Setting a max of 10-12 should get you through the average work day. There's almost certainly a much better way to do this, but I don't know it yet, so there you have it.
+`counter` is what I'm using to limit the number of times the script runs before finishing. How many times you want it to run depends on your time interval between messages (see below) but in general you probably want to keep the number in `while counter > 5` to under 30. There's almost certainly a much better way to do this, but I don't know it yet, so there you have it.
 
-In the future I intend to add an alert sound that accompanies the message pop-up, and I have tried to use the `playsound` module for this, but it's not working in the current version of this script so it's commented out.
+Edit the number of seconds im `time.sleep(5)` to change how frequently the messages appear in seconds. In this script on GitHub the default is 5 for testing purposes, but my personal preference for actual use is 3000 seconds, which is every 50 minutes.
+
