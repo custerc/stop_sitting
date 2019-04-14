@@ -7,6 +7,8 @@ activities = ['push-ups', 'dips', 'inverted rows'] # messages that appear in the
 
 rep_counts = [10, 15, 20, 30] # rep counts for exercises you want to do
 
+counter_max = 5 # number of messages you want to pop up before script finishes running and exits
+
 counter = 0
 
 def message_box():
@@ -15,15 +17,15 @@ def message_box():
     random_reps = random.choice(rep_counts) # choose a random number from rep counts
    
     # SET PERCENT CHANCE FOR EACH ACTIVITY
-    if random_number <= 0.33:                           #set % chance of first message
+    if random_number <= 0.33:                           #set % chance of first activity
         final_activity = activities[0]
-    elif random_number > 0.33 and random_number <= 0.66: #set % chance of second message
+    elif random_number > 0.33 and random_number <= 0.66: #set % chance of second activity
         final_activity = activities[1]
-    elif random_number > 0.66:                          #set % chance of third message
+    elif random_number > 0.66:                          #set % chance of third activity
         final_activity = activities[2]
   
     # PLAY THE ALERT SOUND 
-    playsound.playsound('alert.mp3')
+    playsound.playsound('alert.mp3') # insert your own sound file and directory info here
     
     # CREATE THE MESSAGE BOX POPUP
     MessageBox = ctypes.windll.user32.MessageBoxW
@@ -34,5 +36,5 @@ def message_box():
     counter += 1
     time.sleep(5) # interval in seconds between box pop-ups
    
-while counter < 5:
+while counter < counter_max:
     message_box()
