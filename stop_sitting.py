@@ -3,17 +3,22 @@ import random
 import time
 import playsound
 
-activities = ['push-ups', 'dips', 'inverted rows'] # messages that appear in the pop-up
 
-rep_counts = [10, 15, 20, 30] # rep counts for exercises you want to do
+### BEGIN CUSTOMIZABLE SCRIPT SETTINGS
 
-counter_max = 5 # number of messages you want to pop up before script finishes running and exits
+activities = ['push-ups', 'dips', 'inverted rows'] # activities you want to do go here (stick to 3 for now)
 
-seconds_interval = 5 # number of seconds between each message
+rep_counts = [10, 15, 20, 30] # rep count options you want go here
 
-sound_file = 'alert.mp3'
+counter_max = 5 # number of activity breaks you want goes here 
 
-counter = 0
+seconds_interval = 5 # number of time in seconds between each activity break goes here
+
+sound_file = 'alert.mp3' # your sound file goes here (store in same directory as script, in mp3 or wav format)
+
+### END CUSTOMIZABLE SCRIPT SETTINGS
+
+counter = 0 
 
 def message_box(seconds, sound):
     random_number = random.random()  # set a random number between 0 and 1
