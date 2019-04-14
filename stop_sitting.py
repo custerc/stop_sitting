@@ -9,9 +9,13 @@ rep_counts = [10, 15, 20, 30] # rep counts for exercises you want to do
 
 counter_max = 5 # number of messages you want to pop up before script finishes running and exits
 
+seconds_interval = 5 # number of seconds between each message
+
+sound_file = 'alert.mp3'
+
 counter = 0
 
-def message_box():
+def message_box(seconds, sound):
     random_number = random.random()  # set a random number between 0 and 1
    
     random_reps = random.choice(rep_counts) # choose a random number from rep counts
@@ -25,7 +29,7 @@ def message_box():
         final_activity = activities[2]
   
     # PLAY THE ALERT SOUND 
-    playsound.playsound('alert.mp3') # insert your own sound file and directory info here
+    playsound.playsound(sound) # insert your own sound file and directory info here
     
     # CREATE THE MESSAGE BOX POPUP
     MessageBox = ctypes.windll.user32.MessageBoxW
@@ -34,7 +38,7 @@ def message_box():
     # COUNT TIMES SCRIPT HAS RUN
     global counter
     counter += 1
-    time.sleep(5) # interval in seconds between box pop-ups
+    time.sleep(seconds) # interval in seconds between box pop-ups
    
 while counter < counter_max:
-    message_box()
+    message_box(seconds_interval, sound_file)
