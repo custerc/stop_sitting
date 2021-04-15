@@ -19,3 +19,4 @@ At the top of the script are 5 variables that should be easy for anyone to custo
 
 `sound_file` is the name and location of the alert sound file you want played (it must be .mp3 or .wav). Simply put the file into the same directory as the script and then replace `alert.mp3` with _yourfilename.mp3_.
 
+-e "Update: just testing!" 
